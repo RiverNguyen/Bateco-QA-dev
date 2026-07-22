@@ -1,0 +1,237 @@
+{
+  "Common": {
+    "brand": "Bateco Quốc An",
+    "brandTagline": "Công nghiệp · An ninh · Quốc phòng",
+    "viewDetails": "Xem chi tiết",
+    "viewAll": "Xem tất cả",
+    "all": "Tất cả",
+    "previous": "Trước",
+    "next": "Sau",
+    "previousArticle": "Bài trước",
+    "nextArticle": "Bài tiếp theo",
+    "submitting": "Đang gửi...",
+    "close": "Đóng",
+    "clearSearch": "Xóa tìm kiếm",
+    "resultsFor": "Kết quả cho “{query}”",
+    "postedOn": "Đăng {date}",
+    "details": "Chi tiết",
+    "continue": "Tiếp theo"
+  },
+  "Header": {
+    "navMenu": "Menu điều hướng",
+    "openMenu": "Mở menu",
+    "closeMenu": "Đóng menu",
+    "expandItem": "Mở {label}",
+    "collapseItem": "Thu gọn {label}"
+  },
+  "Footer": {
+    "contact": "Liên hệ",
+    "copyright": "© {year} Bateco Quốc An. All rights reserved."
+  },
+  "Pagination": {
+    "previous": "Trước",
+    "next": "Sau"
+  },
+  "FileUpload": {
+    "invalidFile": "File không hợp lệ, vui lòng tải lên file khác",
+    "tooLarge": "File không được lớn hơn {size}MB",
+    "invalidType": "Định dạng file không được hỗ trợ. Vui lòng chọn PDF, DOC, DOCX, PPT hoặc PPTX.",
+    "tooMany": "Bạn chỉ có thể tải lên tối đa {count} file",
+    "genericInvalid": "File không hợp lệ, vui lòng thử lại"
+  },
+  "Contact": {
+    "formEyebrow": "Biểu mẫu",
+    "callNow": "Gọi ngay",
+    "contactInfoAria": "Thông tin liên hệ",
+    "mapFallbackTitle": "Bản đồ vị trí Bateco",
+    "viewMap": "Xem bản đồ",
+    "fields": {
+      "fullName": "Họ tên",
+      "fullNamePlaceholder": "Nguyễn Văn A",
+      "company": "Tên công ty",
+      "companyPlaceholder": "Tên công ty",
+      "position": "Chức vụ",
+      "positionPlaceholder": "Ví dụ: Giám đốc điều hành",
+      "phone": "Số liên hệ",
+      "phonePlaceholder": "+84 000 000 000",
+      "email": "Địa chỉ Email",
+      "emailPlaceholder": "contact@company.com",
+      "service": "Dịch vụ",
+      "servicePlaceholder": "Chọn dịch vụ",
+      "message": "Ghi chú",
+      "messagePlaceholder": "Hãy cho chúng tôi biết yêu cầu của bạn..."
+    },
+    "serviceDrawer": {
+      "eyebrow": "Lựa chọn",
+      "title": "Dịch vụ"
+    },
+    "services": {
+      "defense": "Công nghệ quốc phòng",
+      "digital": "Chuyển đổi số",
+      "consulting": "Tư vấn công nghệ"
+    },
+    "submit": "Gửi yêu cầu",
+    "toast": {
+      "success": "Gửi yêu cầu thành công. Chúng tôi sẽ liên hệ sớm.",
+      "error": "Gửi yêu cầu thất bại. Vui lòng thử lại.",
+      "network": "Không thể gửi yêu cầu. Vui lòng thử lại hoặc liên hệ trực tiếp."
+    },
+    "validation": {
+      "fullNameRequired": "Vui lòng nhập họ tên",
+      "fullNameMin": "Họ tên phải có ít nhất 2 ký tự",
+      "emailRequired": "Vui lòng nhập email",
+      "emailInvalid": "Email không hợp lệ",
+      "phoneRequired": "Vui lòng nhập số điện thoại",
+      "phoneInvalid": "Số điện thoại không hợp lệ",
+      "serviceRequired": "Vui lòng chọn dịch vụ"
+    }
+  },
+  "Careers": {
+    "banner": {
+      "badge": "Tuyển dụng",
+      "title": "Gia nhập Bateco Quốc An",
+      "desc": "Cùng xây dựng năng lực công nghệ quốc phòng và chuyển đổi số — nơi chuyên môn được phát huy trong môi trường chuẩn mực, dài hạn."
+    },
+    "listingEyebrow": "Vị trí đang tuyển",
+    "listingTitle": "Cơ hội nghề nghiệp",
+    "listingDescription": "Khám phá các vị trí mở và ứng tuyển trực tiếp. Hồ sơ của bạn sẽ được đội ngũ nhân sự xem xét trong vòng 5–7 ngày làm việc.",
+    "searchLabel": "Tìm kiếm vị trí tuyển dụng",
+    "searchPlaceholder": "Tìm kiếm vị trí…",
+    "filterAria": "Lọc theo danh mục tuyển dụng",
+    "emptySearch": "Không tìm thấy vị trí nào cho “{query}”.",
+    "emptyCategory": "Hiện chưa có vị trí tuyển dụng trong danh mục này. Vui lòng chọn danh mục khác hoặc quay lại sau.",
+    "jobDescription": "Mô tả công việc",
+    "relatedEyebrow": "Vị trí khác",
+    "relatedTitle": "Bạn cũng có thể quan tâm",
+    "apply": {
+      "eyebrow": "Hồ sơ ứng tuyển",
+      "title": "Ứng tuyển ngay",
+      "mobileCta": "Ứng tuyển ngay",
+      "drawerClose": "Đóng biểu mẫu",
+      "fullName": "Họ và tên",
+      "fullNamePlaceholder": "Họ tên",
+      "email": "Email",
+      "emailPlaceholder": "example@email.com",
+      "phone": "Số điện thoại",
+      "phonePlaceholder": "Số điện thoại",
+      "cv": "Tải lên CV",
+      "cvHint": "Kéo thả hoặc tải CV lên",
+      "cvFormats": "PDF, DOC, DOCX · tối đa 25MB",
+      "submit": "Gửi hồ sơ ứng tuyển",
+      "cvRequiredToast": "Vui lòng tải lên CV",
+      "success": "Gửi hồ sơ thành công. Chúng tôi sẽ liên hệ sớm.",
+      "error": "Gửi hồ sơ thất bại. Vui lòng thử lại.",
+      "network": "Không thể gửi hồ sơ. Vui lòng thử lại hoặc liên hệ trực tiếp."
+    },
+    "validation": {
+      "fullNameRequired": "Vui lòng nhập họ tên",
+      "fullNameMin": "Họ tên phải có ít nhất 2 ký tự",
+      "emailRequired": "Vui lòng nhập email",
+      "emailInvalid": "Email không hợp lệ",
+      "phoneRequired": "Vui lòng nhập số điện thoại",
+      "phoneInvalid": "Số điện thoại không hợp lệ",
+      "cvRequired": "Vui lòng tải lên CV",
+      "cvTooLarge": "File không được lớn hơn 25MB",
+      "cvInvalidType": "Định dạng file không được hỗ trợ. Vui lòng chọn PDF, DOC hoặc DOCX."
+    }
+  },
+  "News": {
+    "searchLabel": "Tìm kiếm tin tức",
+    "searchPlaceholder": "Tìm kiếm tin tức…",
+    "filterAria": "Lọc theo danh mục",
+    "emptySearch": "Không tìm thấy bài viết nào cho “{query}”.",
+    "emptyCategory": "Chưa có bài viết nào trong danh mục này.",
+    "featuredTitle": "Sự kiện nổi bật",
+    "categoryFallback": "Tin tức",
+    "listing": {
+      "subtitle": "Bản tin",
+      "title": "Mới nhất từ BATECO",
+      "desc": "Theo dõi các sự kiện nổi bật, thông cáo và dấu mốc triển khai giải pháp công nghệ cao."
+    },
+    "tocAria": "Mục lục bài viết",
+    "toc": "Mục lục",
+    "articleAria": "Nội dung bài viết",
+    "relatedEyebrow": "Tiếp theo",
+    "relatedTitle": "Bài viết liên quan",
+    "share": {
+      "eyebrow": "Chia sẻ",
+      "description": "Lan tỏa bài viết tới mạng xã hội",
+      "copyLink": "Sao chép liên kết",
+      "shareVia": "Chia sẻ qua {network}",
+      "copied": "Đã sao chép liên kết",
+      "copyFailed": "Không thể sao chép liên kết"
+    }
+  },
+  "Home": {
+    "bannerAria": "Banner trang chủ",
+    "goToSlide": "Chuyển tới slide {n}",
+    "aboutEyebrow": "Giới thiệu",
+    "eventsDefaultTitle": "Sự kiện nổi bật"
+  },
+  "Fields": {
+    "detailEyebrow": "Chi tiết lĩnh vực",
+    "tocAria": "Mục lục nội dung",
+    "sectionFallback": "Chi tiết",
+    "relatedEyebrow": "Tiếp theo",
+    "relatedTitle": "Lĩnh vực liên quan",
+    "banner": {
+      "subtitle": "Năng lực chuyên sâu",
+      "title": "Lĩnh vực hoạt động",
+      "desc": "Sáu lĩnh vực công nghệ cao và vật tư An ninh – Quốc phòng, đồng bộ từ nghiên cứu, cung ứng đến triển khai thực địa.",
+      "explore": "Khám phá lĩnh vực",
+      "contact": "Liên hệ hợp tác"
+    },
+    "overview": {
+      "subtitle": "Khả năng triển khai",
+      "title": "Sáu trụ cột năng lực",
+      "desc": "Từ dẫn đường quán tính, thông tin liên lạc đến sonar, quang điện tử, tác chiến điện tử và vật tư ANQP — BATECO Quốc An cung cấp giải pháp và sản phẩm với mạng lưới đối tác hàng đầu thế giới."
+    }
+  },
+  "About": {
+    "capabilitiesAria": "Lĩnh vực năng lực",
+    "certifications": {
+      "title": "Chứng nhận & tiêu chuẩn",
+      "description": "Chứng nhận được duy trì liên tục, bảo đảm năng lực triển khai theo chuẩn quốc tế và quy định chuyên ngành."
+    },
+    "chart": {
+      "industry": "Công nghiệp",
+      "commerce": "Thương mại",
+      "other": "Khác",
+      "year": "Năm {label}",
+      "billion": "{value} tỷ"
+    },
+    "partnerCta": {
+      "signal": "ANQP · Hợp tác chiến lược",
+      "title": "Đồng hành cùng các nhiệm vụ trọng yếu",
+      "description": "BATECO Quốc An cam kết mang đến những giải pháp công nghệ cao, đồng bộ, bảo mật – Sẵn sàng cho mọi nhiệm vụ.",
+      "cta": "Liên hệ hợp tác ngay"
+    },
+    "partnerSignals": {
+      "fieldOps": "Triển khai thực địa",
+      "security": "Bảo mật cấp nhiệm vụ",
+      "ready": "Sẵn sàng vận hành"
+    }
+  },
+  "Preloader": {
+    "loadingAria": "Đang tải",
+    "systemName": "Hệ thống Quốc An",
+    "status": "Trạng thái",
+    "progress": "Tiến độ",
+    "tagline": "Công nghiệp · An ninh · Quốc phòng",
+    "steps": {
+      "init": "Khởi tạo hệ thống",
+      "secure": "Thiết lập kênh bảo mật",
+      "sync": "Đồng bộ dữ liệu",
+      "ready": "Sẵn sàng vận hành"
+    }
+  },
+  "Metadata": {
+    "siteTitle": "Bateco Quốc An",
+    "siteDescription": "Website Bateco Quốc An",
+    "contactTitle": "Liên hệ Bateco",
+    "contactDescription": "Liên hệ Bateco Quốc An để hợp tác và tư vấn giải pháp.",
+    "careersTitle": "Tuyển dụng",
+    "careersDescription": "Cơ hội nghề nghiệp tại Bateco Quốc An.",
+    "careersFallback": "Tuyển dụng"
+  }
+}
