@@ -18,13 +18,20 @@ export default function NewsDetailModule({ post, related, locale }: NewsDetailMo
 
   return (
     <>
-      <NewsDetailBanner post={post} />
+      <NewsDetailBanner
+        post={post}
+        locale={locale}
+      />
       <NewsArticleBody
         html={html}
         toc={toc}
         title={post.title}
+        locale={locale}
       />
-      <NewsRelated articles={related} />
+      <NewsRelated
+        articles={related}
+        locale={locale}
+      />
       <PartnerCta locale={locale} />
     </>
   )

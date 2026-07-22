@@ -1,17 +1,20 @@
 import Image from 'next/image'
 
 import { Reveal } from '@/components/shared/reveal'
+import { getLocalePath, type LocaleCode } from '@/i18n/locale-paths'
 import { Link } from '@/i18n/navigation'
 import type { IPostDetail } from '@/interfaces/news.interface'
 import Container from '@/layouts/container'
 
 type NewsDetailBannerProps = {
   post: IPostDetail
+  locale: LocaleCode
 }
 
-export function NewsDetailBanner({ post }: NewsDetailBannerProps) {
+export function NewsDetailBanner({ post, locale }: NewsDetailBannerProps) {
   const category = post.taxonomies?.categories_post?.[0]
   const image = post.thumbnail?.url
+  const newsHref = getLocalePath('news', locale)
 
   return (
     <section
@@ -68,7 +71,7 @@ export function NewsDetailBanner({ post }: NewsDetailBannerProps) {
             <div className='flex flex-wrap items-center gap-x-4 gap-y-2'>
               {category ? (
                 <Link
-                  href={`/tin-tuc?category=${category.slug}`}
+                  href={`${newsHref}?category=${category.slug}`}
                   className='inline-flex items-center gap-2 text-[0.65rem] uppercase tracking-[0.22em] text-brand-moss transition-colors hover:text-white'
                 >
                   <span

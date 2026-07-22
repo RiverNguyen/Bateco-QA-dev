@@ -1,5 +1,6 @@
 import { getTranslations } from 'next-intl/server'
 
+import type { LocaleCode } from '@/i18n/locale-paths'
 import Container from '@/layouts/container'
 import { cn } from '@/lib/utils'
 import { NewsShare } from '@/modules/news/components/detail/share'
@@ -10,10 +11,11 @@ type NewsArticleBodyProps = {
   html: string
   toc: NewsTocItem[]
   title?: string
+  locale: LocaleCode
 }
 
-export async function NewsArticleBody({ html, toc, title }: NewsArticleBodyProps) {
-  const t = await getTranslations('News')
+export async function NewsArticleBody({ html, toc, title, locale }: NewsArticleBodyProps) {
+  const t = await getTranslations({ locale, namespace: 'News' })
 
   if (!html) return null
 

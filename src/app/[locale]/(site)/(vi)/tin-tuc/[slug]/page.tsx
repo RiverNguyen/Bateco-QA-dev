@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation'
-import { getTranslations } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 
 import type { LocaleCode } from '@/i18n/locale-paths'
 import type { INewsItem, IPostDetail } from '@/interfaces/news.interface'
@@ -20,7 +20,9 @@ const NewsDetailPage = async ({
 }) => {
   const { locale, slug } = await params
   if (locale !== 'vi') notFound()
-  const t = await getTranslations('News')
+
+  setRequestLocale(locale)
+  const t = await getTranslations({ locale, namespace: 'News' })
 
   const detailRes = await newsService.getDetail(slug, locale)
   const post = detailRes?.data as IPostDetail | undefined

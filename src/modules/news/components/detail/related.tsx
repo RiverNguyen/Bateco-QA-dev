@@ -4,15 +4,18 @@ import { ArrowLink } from '@/components/shared/arrow-link'
 import type { ArticleCardItem } from '@/components/shared/article-card'
 import { ArticleCarousel } from '@/components/shared/article-carousel'
 import { Reveal } from '@/components/shared/reveal'
+import { getLocalePath, type LocaleCode } from '@/i18n/locale-paths'
 import Container from '@/layouts/container'
 
 type NewsRelatedProps = {
   articles: ArticleCardItem[]
+  locale: LocaleCode
 }
 
-export async function NewsRelated({ articles }: NewsRelatedProps) {
-  const t = await getTranslations('News')
-  const tCommon = await getTranslations('Common')
+export async function NewsRelated({ articles, locale }: NewsRelatedProps) {
+  const t = await getTranslations({ locale, namespace: 'News' })
+  const tCommon = await getTranslations({ locale, namespace: 'Common' })
+  const newsHref = getLocalePath('news', locale)
 
   if (!articles.length) return null
 
@@ -55,7 +58,7 @@ export async function NewsRelated({ articles }: NewsRelatedProps) {
               </h2>
             </div>
             <ArrowLink
-              href='/tin-tuc'
+              href={newsHref}
               variant='light'
               className='mb-[0.2rem] shrink-0'
             >
