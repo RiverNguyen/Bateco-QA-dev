@@ -61,7 +61,7 @@ export default function NewsBanner({ data }: { data: INewsPage['banner'] }) {
           >
             <h1
               id='news-banner-heading'
-              className='font-display text-[4rem] font-semibold uppercase leading-[0.95] tracking-wide text-white xsm:text-[2.35rem]'
+              className='font-display text-[4rem] font-semibold uppercase leading-[1.25] tracking-wide text-white xsm:text-[2.35rem]'
             >
               {data?.title}
             </h1>

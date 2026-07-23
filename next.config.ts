@@ -41,6 +41,7 @@ function getLanDevOrigins(): string[] {
 
 const nextConfig: NextConfig = {
   allowedDevOrigins: getLanDevOrigins(),
+  transpilePackages: ['three', 'three-globe', '@react-three/fiber', '@react-three/drei'],
   images: {
     formats: ['image/webp'],
     minimumCacheTTL: 2678400,

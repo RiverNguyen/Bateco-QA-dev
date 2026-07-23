@@ -45,6 +45,11 @@
     "contactInfoAria": "Contact information",
     "mapFallbackTitle": "Bateco location map",
     "viewMap": "View map",
+    "globe": {
+      "eyebrow": "Network",
+      "title": "Global connections",
+      "description": "From our Hanoi headquarters, Bateco Quoc An works with partners across regions — ready for consulting requests and collaboration."
+    },
     "fields": {
       "fullName": "Full name",
       "fullNamePlaceholder": "John Doe",

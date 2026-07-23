@@ -8,18 +8,33 @@ import { Reveal } from '@/components/shared/reveal'
 import { IAboutUsParameter } from '@/interfaces/about.interface'
 import { cn } from '@/lib/utils'
 
-import type { AboutIntroStat } from '@/modules/about/lib/intro-data'
-
 const FLOW_TIMING = {
   duration: 2200,
   easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
 } as const
 
+/** CMS may send "10+" — Number("10+") is NaN, so split digits from trailing suffix. */
+function parseStatNumber(raw: string): { value: number; suffix: string } {
+  const trimmed = raw.trim()
+  const match = trimmed.match(/^(-?\d+(?:[.,]\d+)?)(.*)$/)
+  if (!match) return { value: 0, suffix: trimmed }
+
+  const value = Number(match[1].replace(',', '.'))
+  return {
+    value: Number.isFinite(value) ? value : 0,
+    suffix: match[2] ?? '',
+  }
+}
+
 function StatValue({
   value,
   suffix,
   active,
-}: Pick<AboutIntroStat, 'value' | 'suffix'> & { active: boolean }) {
+}: {
+  value: number
+  suffix: string
+  active: boolean
+}) {
   return (
     <span className='font-display text-[3.25rem] font-semibold leading-none tracking-wide text-brand-ink xsm:text-[2.5rem]'>
       <NumberFlow
@@ -68,25 +83,30 @@ export function IntroStats({ stats }: { stats: IAboutUsParameter[] }) {
       >
         {Array.isArray(stats) &&
           stats.length > 0 &&
-          stats.map((stat, index) => (
-            <li
-              key={stat.number}
-              className={cn(
-                'flex flex-col px-[1.5rem] first:pl-0 last:pr-0',
-                'xsm:px-0 xsm:py-[1rem]',
-                index % 2 === 1 && 'xsm:border-l xsm:border-brand-ink/15 xsm:pl-[1rem]',
-                index >= 2 && 'xsm:border-t xsm:border-brand-ink/15',
-              )}
-            >
-              <StatValue
-                value={Number(stat.number)}
-                active={active}
-              />
-              <span className='mt-[0.65rem] font-sans text-[0.8rem] font-medium uppercase tracking-[0.12em] text-brand-ink/55'>
-                {stat?.title}
-              </span>
-            </li>
-          ))}
+          stats.map((stat, index) => {
+            const { value, suffix } = parseStatNumber(stat.number)
+
+            return (
+              <li
+                key={`${stat.number}-${stat.title}`}
+                className={cn(
+                  'flex flex-col px-[1.5rem] first:pl-0 last:pr-0',
+                  'xsm:px-0 xsm:py-[1rem]',
+                  index % 2 === 1 && 'xsm:border-l xsm:border-brand-ink/15 xsm:pl-[1rem]',
+                  index >= 2 && 'xsm:border-t xsm:border-brand-ink/15',
+                )}
+              >
+                <StatValue
+                  value={value}
+                  suffix={suffix}
+                  active={active}
+                />
+                <span className='mt-[0.65rem] font-sans text-[0.8rem] font-medium uppercase tracking-[0.12em] text-brand-ink/55'>
+                  {stat?.title}
+                </span>
+              </li>
+            )
+          })}
       </ul>
     </Reveal>
   )

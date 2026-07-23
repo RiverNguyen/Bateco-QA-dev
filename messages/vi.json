@@ -45,6 +45,11 @@
     "contactInfoAria": "Thông tin liên hệ",
     "mapFallbackTitle": "Bản đồ vị trí Bateco",
     "viewMap": "Xem bản đồ",
+    "globe": {
+      "eyebrow": "Mạng lưới",
+      "title": "Kết nối toàn cầu",
+      "description": "Từ trụ sở tại Hà Nội, Bateco Quốc An đồng hành cùng đối tác trên nhiều khu vực — sẵn sàng tiếp nhận yêu cầu tư vấn và hợp tác."
+    },
     "fields": {
       "fullName": "Họ tên",
       "fullNamePlaceholder": "Nguyễn Văn A",

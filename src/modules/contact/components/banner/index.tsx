@@ -72,7 +72,7 @@ export default function ContactBanner({ data }: { data: IContactPageData['banner
           >
             <h1
               id='contact-banner-heading'
-              className='font-display text-[4rem] font-semibold uppercase leading-[0.95] tracking-wide text-white xsm:text-[2.35rem]'
+              className='font-display text-[4rem] font-semibold uppercase leading-[1.25] tracking-wide text-white xsm:text-[2.35rem]'
             >
               {data?.title}
             </h1>
