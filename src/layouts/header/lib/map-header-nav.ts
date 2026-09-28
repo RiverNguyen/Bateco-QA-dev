@@ -2,6 +2,7 @@ import { mapPathnameForLocale, type LocaleCode } from '@/i18n/locale-paths'
 import type { IHeaderNavigation, IHeaderParentLinkItem } from '@/interfaces/header.interface'
 import type { ILink } from '@/interfaces/link.interface'
 import { decodeHtmlEntities } from '@/lib/decode-html-entities'
+import { resolveFieldSlug, type FieldRef } from '@/modules/fields/lib/resolve-field-slug'
 
 export type HeaderNavLink = {
   label: string
@@ -79,19 +80,30 @@ function localizeHref(href: string, locale: LocaleCode): string {
   return mapPathnameForLocale(path, locale)
 }
 
+function isFieldsParent(href: string) {
+  const path = href.split('?')[0].replace(/\/$/, '')
+  return path === '/linh-vuc' || path === '/fields'
+}
+
 function mapChildLinks(
   parentHref: string,
   link: IHeaderParentLinkItem[] | false | null | undefined,
+  fields: FieldRef[],
 ): HeaderNavLink[] {
   if (!Array.isArray(link)) return []
 
   const links: HeaderNavLink[] = []
+  const resolveFields = isFieldsParent(parentHref)
 
   for (const entry of link) {
     if (!isLink(entry?.item)) continue
+    const label = decodeHtmlEntities(entry.item.title)
+    const childUrl = resolveFields
+      ? `/${resolveFieldSlug(label, entry.item.url || '', fields) || extractSlug(entry.item.url || '')}`
+      : entry.item.url || ''
     links.push({
-      label: decodeHtmlEntities(entry.item.title),
-      href: joinParentChildHref(parentHref, entry.item.url || ''),
+      label,
+      href: joinParentChildHref(parentHref, childUrl),
       target: linkTarget(entry.item.target),
     })
   }
@@ -113,6 +125,7 @@ function mapParentItem(
   parent: NonNullable<IHeaderNavigation['parent']>,
   index: number,
   locale: LocaleCode,
+  fields: FieldRef[],
 ): HeaderNavItem {
   const href = localizeHref(linkTitle.url || '/', locale)
 
@@ -125,7 +138,7 @@ function mapParentItem(
       eyebrow: decodeHtmlEntities(parent.desc?.title),
       description: decodeHtmlEntities(parent.desc?.desc),
       linksTitle: decodeHtmlEntities(linkTitle.title),
-      links: mapChildLinks(href, parent.link),
+      links: mapChildLinks(href, parent.link, fields),
     },
   }
 }
@@ -138,6 +151,7 @@ function mapParentItem(
 export function mapHeaderNavigations(
   navigations: IHeaderNavigation[] | null | undefined,
   locale: LocaleCode = 'vi',
+  fields: FieldRef[] = [],
 ): HeaderNavItem[] {
   if (!Array.isArray(navigations)) return []
 
@@ -149,7 +163,7 @@ export function mapHeaderNavigations(
       const linkTitle = parent?.link_title
 
       if (isLink(linkTitle)) {
-        items.push(mapParentItem(linkTitle, parent, index, locale))
+        items.push(mapParentItem(linkTitle, parent, index, locale, fields))
       }
       return
     }

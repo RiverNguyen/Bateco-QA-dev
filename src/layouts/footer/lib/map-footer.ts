@@ -2,23 +2,27 @@
 import type { IFooter } from '@/interfaces/footer.interface'
 import type { FooterColumn, FooterContact } from '@/layouts/footer/lib/types'
 import { decodeHtmlEntities } from '@/lib/decode-html-entities'
+import { rewriteFieldHref, type FieldRef } from '@/modules/fields/lib/resolve-field-slug'
 
 export function mapTarget(target: string): string | undefined {
   const value = target?.trim()
   return value || undefined
 }
 
-export function mapFooterColumns(data?: IFooter | null): FooterColumn[] {
+export function mapFooterColumns(data?: IFooter | null, fields: FieldRef[] = []): FooterColumn[] {
   if (!Array.isArray(data?.menu)) return []
 
   return data.menu.map((section) => ({
     title: decodeHtmlEntities(section.title),
     links: Array.isArray(section.link_array)
-      ? section.link_array.map(({ link }) => ({
-          label: decodeHtmlEntities(link.title),
-          href: link.url || '/',
-          target: mapTarget(link.target),
-        }))
+      ? section.link_array.map(({ link }) => {
+          const label = decodeHtmlEntities(link.title)
+          return {
+            label,
+            href: rewriteFieldHref(link.url || '/', label, fields),
+            target: mapTarget(link.target),
+          }
+        })
       : [],
   }))
 }

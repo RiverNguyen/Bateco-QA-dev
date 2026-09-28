@@ -7,7 +7,7 @@ const newsService = {
       api: ENDPOINTS.news[lang as 'vi' | 'en'],
       option: {
         next: {
-          revalidate: 3600,
+          revalidate: 60,
           tags: ['news', `news-${lang}`],
         },
       },
@@ -18,7 +18,7 @@ const newsService = {
       api: ENDPOINTS.news.getData(lang, limit),
       option: {
         next: {
-          revalidate: 3600,
+          revalidate: 60,
           tags: ['news', `news-${lang}`],
         },
       },
@@ -56,7 +56,7 @@ const newsService = {
       }),
       option: {
         next: {
-          revalidate: 3600,
+          revalidate: 60,
           tags: ['news', `news-${lang}`],
         },
       },
@@ -67,7 +67,7 @@ const newsService = {
       api: ENDPOINTS.news.taxonomies(lang),
       option: {
         next: {
-          revalidate: 3600,
+          revalidate: 60,
           tags: ['news', `news-${lang}`],
         },
       },
@@ -78,7 +78,7 @@ const newsService = {
       api: ENDPOINTS.news.getDetail(slug, lang),
       option: {
         next: {
-          revalidate: 3600,
+          revalidate: 60,
           tags: ['news', `news-${slug}`, `news-${lang}`],
         },
       },

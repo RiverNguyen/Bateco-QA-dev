@@ -9,6 +9,7 @@ import SmoothScroll from '@/components/providers/smooth-scroll'
 import CTA from '@/layouts/cta'
 import Footer from '@/layouts/footer'
 import Header from '@/layouts/header'
+import fieldService from '@/services/field'
 import siteSettingsService from '@/services/site-settings'
 
 export default async function LocaleLayout({
@@ -20,7 +21,11 @@ export default async function LocaleLayout({
 }) {
   const { locale } = await params
   setRequestLocale(locale)
-  const siteSettings = await siteSettingsService.getData(locale)
+  const [siteSettings, fieldsData] = await Promise.all([
+    siteSettingsService.getData(locale),
+    fieldService.getData(locale),
+  ])
+  const fields = fieldsData?.data ?? []
 
   return (
     <NuqsAdapter>
@@ -39,9 +44,15 @@ export default async function LocaleLayout({
         />
         <SmoothScroll>
           <Preloader />
-          <Header data={siteSettings?.data?.header} />
+          <Header
+            data={siteSettings?.data?.header}
+            fields={fields}
+          />
           <main className='pt-[var(--header-height)]'>{children}</main>
-          <Footer data={siteSettings?.data?.footer} />
+          <Footer
+            data={siteSettings?.data?.footer}
+            fields={fields}
+          />
           <CTA />
           <Toaster
             theme='light'

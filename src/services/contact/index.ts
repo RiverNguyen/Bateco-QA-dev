@@ -7,7 +7,7 @@ const contactService = {
       api: ENDPOINTS.contact[lang as 'vi' | 'en'],
       option: {
         next: {
-          revalidate: 3600,
+          revalidate: 60,
           tags: ['contact', `contact-${lang}`],
         },
       },

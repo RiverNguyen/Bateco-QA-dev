@@ -34,7 +34,7 @@ const careersService = {
       }),
       option: {
         next: {
-          revalidate: 3600,
+          revalidate: 60,
           tags: ['careers', `careers-${lang}`],
         },
       },
@@ -45,7 +45,7 @@ const careersService = {
       api: ENDPOINTS.careers.taxonomies(lang),
       option: {
         next: {
-          revalidate: 3600,
+          revalidate: 60,
           tags: ['careers', `careers-${lang}`],
         },
       },
@@ -56,7 +56,7 @@ const careersService = {
       api: ENDPOINTS.careers.getDetail(slug, lang),
       option: {
         next: {
-          revalidate: 3600,
+          revalidate: 60,
           tags: ['careers', `careers-${slug}`, `careers-${lang}`],
         },
       },

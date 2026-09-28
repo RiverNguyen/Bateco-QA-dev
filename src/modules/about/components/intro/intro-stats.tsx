@@ -26,15 +26,7 @@ function parseStatNumber(raw: string): { value: number; suffix: string } {
   }
 }
 
-function StatValue({
-  value,
-  suffix,
-  active,
-}: {
-  value: number
-  suffix: string
-  active: boolean
-}) {
+function StatValue({ value, suffix, active }: { value: number; suffix: string; active: boolean }) {
   return (
     <span className='font-display text-[3.25rem] font-semibold leading-none tracking-wide text-brand-ink xsm:text-[2.5rem]'>
       <NumberFlow

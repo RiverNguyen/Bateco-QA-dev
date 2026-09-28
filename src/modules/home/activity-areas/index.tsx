@@ -3,11 +3,20 @@
 import { Reveal } from '@/components/shared/reveal'
 import { IHomepageAreasOfOperation } from '@/interfaces/homepage.interface'
 import { cn } from '@/lib/utils'
-import { ActivityCard } from '@/modules/home/activity-areas/components/activity-card'
+import {
+  ActivityCard,
+  type ActivityFieldRef,
+} from '@/modules/home/activity-areas/components/activity-card'
 import { SectionBackground } from '@/modules/home/activity-areas/components/section-background'
 import { AREA_ORDER } from '@/modules/home/activity-areas/lib/constants'
 
-export default function ActivityAreas({ data }: { data: IHomepageAreasOfOperation }) {
+export default function ActivityAreas({
+  data,
+  fields = [],
+}: {
+  data: IHomepageAreasOfOperation
+  fields?: ActivityFieldRef[]
+}) {
   return (
     <section
       id='activity-areas-heading'
@@ -45,6 +54,7 @@ export default function ActivityAreas({ data }: { data: IHomepageAreasOfOperatio
                 item={item}
                 area={AREA_ORDER[index] ?? 'a'}
                 delay={0.04 + index * 0.06}
+                fields={fields}
               />
             ))}
         </div>

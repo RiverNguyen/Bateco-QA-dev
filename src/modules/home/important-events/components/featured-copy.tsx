@@ -4,6 +4,7 @@ import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 import { useLocale, useTranslations } from 'next-intl'
 
 import { ArrowLink } from '@/components/shared/arrow-link'
+import { getLocalePath, type LocaleCode } from '@/i18n/locale-paths'
 import { Link } from '@/i18n/navigation'
 import { IHomepageNews } from '@/interfaces/homepage.interface'
 import { cn } from '@/lib/utils'
@@ -29,8 +30,10 @@ function FeaturedCopyInner({
   animated?: boolean
   tone?: 'dark' | 'light'
 }) {
-  const locale = useLocale()
-  const href = locale === 'vi' ? `/tin-tuc/${article?.slug}` : `/news/${article?.slug}`
+  const locale = useLocale() as LocaleCode
+  const newsHref = getLocalePath('news', locale)
+  const href = getLocalePath('news', locale, article?.slug)
+  const category = article?.taxonomies?.categories_post?.[0]
   const t = useTranslations('Common')
   const isLight = tone === 'light'
   const Wrapper = animated ? motion.div : 'div'
@@ -55,16 +58,14 @@ function FeaturedCopyInner({
           aria-hidden
           className='h-px w-[1.25rem] bg-brand-moss'
         />
-        <Link
-          href={
-            locale === 'vi'
-              ? `/tin-tuc/${article?.taxonomies?.categories_post[0]?.slug}`
-              : `/news/${article?.taxonomies?.categories_post[0]?.slug}`
-          }
-          className='font-sans text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-brand-moss'
-        >
-          {article?.taxonomies?.categories_post[0]?.name}
-        </Link>
+        {category?.name ? (
+          <Link
+            href={`${newsHref}?category=${category.slug}`}
+            className='font-sans text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-brand-moss'
+          >
+            {category.name}
+          </Link>
+        ) : null}
       </Wrapper>
 
       <Wrapper

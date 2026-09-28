@@ -7,7 +7,7 @@ const homepageService = {
       api: ENDPOINTS.homepage[lang as 'vi' | 'en'],
       option: {
         next: {
-          revalidate: 3600,
+          revalidate: 60,
           tags: ['homepage', `homepage-${lang}`],
         },
       },
@@ -18,7 +18,7 @@ const homepageService = {
       api: ENDPOINTS.homepage.getNews(lang),
       option: {
         next: {
-          revalidate: 3600,
+          revalidate: 60,
           tags: ['news', `news-${lang}`],
         },
       },

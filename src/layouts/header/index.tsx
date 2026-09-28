@@ -18,13 +18,15 @@ import { MobileNav } from '@/layouts/header/components/mobile-nav'
 import { FALLBACK_LOGO, type LocaleCode } from '@/layouts/header/lib/constants'
 import { mapHeaderNavigations, type HeaderMegaPanel } from '@/layouts/header/lib/map-header-nav'
 import { cn } from '@/lib/utils'
+import type { FieldRef } from '@/modules/fields/lib/resolve-field-slug'
 
 type HeaderProps = {
   data?: IHeader | null
+  fields?: FieldRef[]
   className?: string
 }
 
-export default function Header({ data, className }: HeaderProps) {
+export default function Header({ data, fields = [], className }: HeaderProps) {
   const t = useTranslations('Header')
   const tCommon = useTranslations('Common')
   const [isPending, startTransition] = useTransition()
@@ -37,8 +39,8 @@ export default function Header({ data, className }: HeaderProps) {
   const headerRef = useRef<HTMLElement>(null)
 
   const navItems = useMemo(
-    () => mapHeaderNavigations(data?.navigations ?? [], locale),
-    [data?.navigations, locale],
+    () => mapHeaderNavigations(data?.navigations ?? [], locale, fields),
+    [data?.navigations, fields, locale],
   )
   const logoSrc = data?.logo || FALLBACK_LOGO
 

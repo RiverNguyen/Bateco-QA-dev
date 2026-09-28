@@ -5,6 +5,12 @@ import { getTranslations } from 'next-intl/server'
 import ContactModule from '@/modules/contact'
 import contactService from '@/services/contact'
 
+export const dynamicParams = false
+
+export function generateStaticParams() {
+  return [{ locale: 'en' }]
+}
+
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('Metadata')
 

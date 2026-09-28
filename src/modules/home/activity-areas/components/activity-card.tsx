@@ -7,21 +7,27 @@ import { useState } from 'react'
 
 import { HyperText } from '@/components/shared/hyper-text'
 import { Reveal } from '@/components/shared/reveal'
+import { getLocalePath, type LocaleCode } from '@/i18n/locale-paths'
 import { Link } from '@/i18n/navigation'
 import { IHomepageAreaField } from '@/interfaces/homepage.interface'
 import { cn } from '@/lib/utils'
 import { AREA_CLASS, type AreaKey } from '@/modules/home/activity-areas/lib/constants'
+import { resolveFieldSlug, type FieldRef } from '@/modules/fields/lib/resolve-field-slug'
+
+export type ActivityFieldRef = FieldRef
 
 type ActivityCardProps = {
   item: IHomepageAreaField
   area: AreaKey
   delay: number
+  fields: ActivityFieldRef[]
 }
 
-export function ActivityCard({ item, area, delay }: ActivityCardProps) {
+export function ActivityCard({ item, area, delay, fields }: ActivityCardProps) {
   const [isHovered, setIsHovered] = useState(false)
-  const locale = useLocale()
-  const href = locale === 'vi' ? `/linh-vuc${item?.link?.url}` : `/fields${item?.link?.url}`
+  const locale = useLocale() as LocaleCode
+  const slug = resolveFieldSlug(item?.title ?? '', item?.link?.url, fields)
+  const href = slug ? getLocalePath('fields', locale, slug) : getLocalePath('fields', locale)
 
   return (
     <Reveal

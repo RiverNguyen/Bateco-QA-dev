@@ -5,10 +5,7 @@ import { useTranslations } from 'next-intl'
 
 import { Reveal } from '@/components/shared/reveal'
 import Container from '@/layouts/container'
-import {
-  CONTACT_GLOBE_ARCS,
-  CONTACT_GLOBE_CONFIG,
-} from '@/modules/contact/lib/globe-data'
+import { CONTACT_GLOBE_ARCS, CONTACT_GLOBE_CONFIG } from '@/modules/contact/lib/globe-data'
 
 const World = dynamic(() => import('@/components/ui/globe').then((m) => m.World), {
   ssr: false,

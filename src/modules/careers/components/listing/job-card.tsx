@@ -41,7 +41,7 @@ export async function JobCard({ job, index = 0, locale: localeProp }: JobCardPro
           <div className='flex items-start justify-between gap-3'>
             <div className='min-w-0'>
               <p className='text-[0.62rem] uppercase tracking-[0.2em] text-brand-moss'>
-                {job?.taxonomies?.careers_tax[0]?.name}
+                {job?.taxonomies?.careers_tax?.[0]?.name}
               </p>
               <h3 className='mt-2 font-display text-[1.45rem] font-semibold uppercase leading-[1.15] tracking-wide text-brand-ink transition-colors group-hover/job:text-brand-moss xsm:text-[1.25rem]'>
                 {job?.title}

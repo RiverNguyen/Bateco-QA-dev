@@ -1,0 +1,34 @@
+services:
+  next-app:
+    container_name: bqa
+    platform: linux/amd64
+    image: rivernguyen1309/bqa:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_CMS: ${NEXT_PUBLIC_CMS}
+        NEXT_PUBLIC_API: ${NEXT_PUBLIC_API}
+        NEXT_PUBLIC_DOMAIN: ${NEXT_PUBLIC_DOMAIN}
+        NEXT_PUBLIC_API_CF7: ${NEXT_PUBLIC_API_CF7}
+        NEXT_PUBLIC_ANALYZE: ${NEXT_PUBLIC_ANALYZE}
+    restart: always
+    ports:
+      - 3000:3000
+    networks:
+      - bqa
+    volumes:
+      # Persist Next.js ISR / fetch data cache across container restarts,
+      # otherwise every recreate starts cold and refetches the CMS on every request.
+      - next-cache:/app/.next/cache
+
+  # Add more containers below (nginx, postgres, etc.)
+
+# Define a network, which allows containers to communicate
+# with each other, by using their container name as a hostname
+networks:
+  bqa:
+    external: true
+
+volumes:
+  next-cache:

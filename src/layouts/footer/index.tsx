@@ -7,19 +7,21 @@ import { FooterCta } from '@/layouts/footer/components/footer-cta'
 import { FooterNavColumn } from '@/layouts/footer/components/footer-nav-column'
 import { mapFooterColumns, mapFooterContacts, mapTarget } from '@/layouts/footer/lib/map-footer'
 import { decodeHtmlEntities } from '@/lib/decode-html-entities'
+import type { FieldRef } from '@/modules/fields/lib/resolve-field-slug'
 import { cn } from '@/lib/utils'
 
 type FooterProps = {
   data?: IFooter | null
+  fields?: FieldRef[]
 }
 
-export default async function Footer({ data }: FooterProps) {
+export default async function Footer({ data, fields = [] }: FooterProps) {
   if (!data) return null
 
   const year = new Date().getFullYear()
   const description = decodeHtmlEntities(data.desc)
   const contacts = mapFooterContacts(data)
-  const columns = mapFooterColumns(data)
+  const columns = mapFooterColumns(data, fields)
   const button1 = data.button_1
   const button2 = data.button_2
 

@@ -7,7 +7,7 @@ const aboutUsService = {
       api: ENDPOINTS.about[lang as 'vi' | 'en'],
       option: {
         next: {
-          revalidate: 3600,
+          revalidate: 60,
           tags: ['about-us', `about-us-${lang}`],
         },
       },

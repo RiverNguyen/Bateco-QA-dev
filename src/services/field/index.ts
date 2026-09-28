@@ -7,7 +7,7 @@ const fieldService = {
       api: ENDPOINTS.field.getData(lang),
       option: {
         next: {
-          revalidate: 3600,
+          revalidate: 60,
           tags: ['field', `field-${lang}`],
         },
       },
@@ -18,7 +18,7 @@ const fieldService = {
       api: ENDPOINTS.field.getDetail(lang, slug),
       option: {
         next: {
-          revalidate: 3600,
+          revalidate: 60,
           tags: ['field', `field-${slug}`],
         },
       },
